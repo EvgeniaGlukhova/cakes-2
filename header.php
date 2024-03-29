@@ -1,16 +1,4 @@
-<?php
-    session_start(["use_strict_mode" => true]);
 
-    
-
-    if (isset($_SESSION['login'])) {
-        $text = $_SESSION['login'];
-        $link = 'profile.php';
-    } else {
-        $text = 'Вход';
-        $link = 'login.php';
-    }
-?>
 
 <header class="header">
     <div class="container">
