@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?php include_once 'link.php' ?>
+    <link rel="stylesheet" href="user.css">
+    <title>Document</title>
+</head>
+<body>
+    <?php include_once 'header.php' ?>
+
+    <?php
+
+    if(isset($_POST["lName"]) && isset($_POST["fName"]) && 
+    isset($_POST["Comment"]) && isset($_POST["Topping"])) 
+    {
+        $nname = ($_POST["lName"]);
+        $surname = ($_POST["fName"]);
+        $topping = ($_POST["Topping"]);
+        $comment = $_POST["Comment"];
+        
+
+
+    } else {
+        echo "Произошла ошибка ";
+    }
+    
+    if ( isset($_FILES["picture"]) && $_FILES["picture"]['error'] == 0)
+    {
+        $name = "upload/" . $_FILES["picture"]["name"];
+        move_uploaded_file($_FILES["picture"]["tmp_name"], $name);
+
+        
+        //echo "Файл загружен";
+        
+    } else {
+        echo "Произошла ошибка при загрузке файла.";
+    }
+
+    setcookie('name', $name);
+    setcookie('surname', $surname);
+    setcookie('topping', $topping);
+    
+    ?>
+
+<main class="main">
+        <div class="main-container">
+            <h2 class="order">Ваш заказ</h2><br>
+            <p>Имя: <?php echo $nname; ?></p>
+            <p>Фамилия: <?php echo $surname; ?></p>
+            <p>Начинка: <?php echo $topping; ?></p>
+            <p>Ваши пожелания: <?php echo $comment; ?></p>
+            
+        </div>
+    </main>
+
+    
+
+    <?php include_once 'footer.php' ?>
+</body>
+</html>
+
+
