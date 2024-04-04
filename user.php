@@ -13,11 +13,12 @@
 
     <?php
 
-    if(isset($_POST["lName"]) && isset($_POST["fName"]) && 
+    if(isset($_POST["lName"]) && isset($_POST["fName"]) && isset($_POST["Email"]) &&
     isset($_POST["Comment"]) && isset($_POST["Topping"])) 
     {
         $nname = ($_POST["lName"]);
         $surname = ($_POST["fName"]);
+        $email = ($_POST["Email"]);
         $topping = ($_POST["Topping"]);
         $comment = $_POST["Comment"];
         
@@ -38,11 +39,18 @@
     } else {
         echo "Произошла ошибка при загрузке файла.";
     }
-
-    setcookie('name', $name);
-    setcookie('surname', $surname);
-    setcookie('topping', $topping);
     
+    setcookie('name', $name, time()+60);
+    setcookie('surname', $surname, time()+60);
+    setcookie('email', $email, time()+60);
+
+    if (!isset($_COOKIE['name']) && !isset($_COOKIE['surname']) && !isset($_COOKIE['email']))
+    {
+        setcookie('name', $name, time()+60);
+        setcookie('surname', $surname, time()+60);
+        setcookie('email', $email, time()+60);
+
+    }
     ?>
 
 <main class="main">
@@ -50,6 +58,7 @@
             <h2 class="order">Ваш заказ</h2><br>
             <p>Имя: <?php echo $nname; ?></p>
             <p>Фамилия: <?php echo $surname; ?></p>
+            <p>Почта: <?php echo $email; ?></p>
             <p>Начинка: <?php echo $topping; ?></p>
             <p>Ваши пожелания: <?php echo $comment; ?></p>
             
