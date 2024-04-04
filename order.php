@@ -19,7 +19,7 @@
             <form action="user.php" method="POST" enctype="multipart/form-data" >
             <input class="login-input" type="text" name="lName" id="lName" placeholder="Фамилия" require><br>
                 <input class="login-input" type="text" name="fName" id="fName" placeholder="Имя" require><br>
-                <input class="login-input" type="text" name="Mail" id="Mail" placeholder="Почта" require><br>
+                <input class="login-input" type="text" name="Email" id="Email" placeholder="Почта" require><br>
                 <select class="login-input" name="Topping" id="Topping" placeholder="Начинка">
                     <option value="0">Шоколадное трио
                     <option value="1">Флорида
