@@ -40,15 +40,15 @@
         echo "Произошла ошибка при загрузке файла.";
     }
     
-    setcookie('name', $name, time()+60);
-    setcookie('surname', $surname, time()+60);
-    setcookie('email', $email, time()+60);
+    setcookie('fName', $nname, time()+60);
+    setcookie('lName', $surname, time()+60);
+    setcookie('Email', $email, time()+60);
 
-    if (!isset($_COOKIE['name']) && !isset($_COOKIE['surname']) && !isset($_COOKIE['email']))
+    if (!isset($_COOKIE['fName']) && !isset($_COOKIE['lName']) && !isset($_COOKIE['Email']))
     {
-        setcookie('name', $name, time()+60);
-        setcookie('surname', $surname, time()+60);
-        setcookie('email', $email, time()+60);
+        setcookie('fName', $nname, time()+60);
+        setcookie('lName', $surname, time()+60);
+        setcookie('Email', $email, time()+60);
 
     }
     ?>
@@ -70,5 +70,8 @@
     <?php include_once 'footer.php' ?>
 </body>
 </html>
+
+
+
 
 
