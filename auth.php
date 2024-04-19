@@ -12,7 +12,7 @@
                 $_SESSION['error'] = 'Вы ввели неправильный пароль!';
                 header("Location: login.php");
                 die();
-            }
+            } 
 
         }
         else {
